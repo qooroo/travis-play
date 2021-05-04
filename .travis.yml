@@ -12,5 +12,5 @@ jobs:
       script:
         - git status
         - java -version
-        - ./gradlew --version
-        - ./gradlew build --scan -s
+        - ./gradlew --no-daemon --version
+        - ./gradlew build --no-daemon -s
