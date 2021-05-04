@@ -1,8 +1,16 @@
-language: java
-install: skip
-
 os: windows
-jdk: oraclejdk8
 
-script:
-  - ./gradlew build --scan -s
+jobs:
+  include:
+    - stage: compile
+      jdk: openjdk8
+      name: "Build gradle on windows"
+      install:
+        - export JAVA_HOME=${JAVA_HOME:-/c/jdk}
+        - export PATH=${JAVA_HOME}/bin:${PATH}
+        - choco install jdk8 -params 'installdir=c:\\jdk' -y
+      script:
+        - git status
+        - java -version
+        - ./gradlew --version
+        - ./gradlew build --scan -s
