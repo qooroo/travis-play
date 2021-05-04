@@ -3,7 +3,6 @@ os: windows
 jobs:
   include:
     - stage: compile
-      jdk: openjdk8
       name: "Build gradle on windows"
       install:
         - export JAVA_HOME=${JAVA_HOME:-/c/jdk}
